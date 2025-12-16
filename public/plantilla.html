@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Plantilla Terapéutica</title>
+  <link rel="stylesheet" href="/bootstrap/bootstrap.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+          <div class="card-body text-center">
+            <h1 class="mb-4">Plantilla Terapéutica Básica</h1>
+
+            <img src="plantilla.png" alt="Plantilla" width="200" height="100" class="img-fluid mb-3 rounded">
+
+            <p class="text-muted">
+              Plantilla terapéutica diseñada para brindar comodidad durante sesiones prolongadas.
+            </p>
+
+            <h3 class="mt-4">Talla disponible</h3>
+            <select id="talla" class="form-select w-50 mx-auto mb-3">
+              <option value="">Selecciona talla</option>
+              <option value="S">Chica</option>
+              <option value="M">Mediana</option>
+              <option value="L">Grande</option>
+            </select>
+
+            <p id="estado" class="mt-3">
+              Estado: <strong id="estadoValor" class="text-success">Disponible</strong>
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <button onclick="agregarCarrito()" class="btn btn-primary">
+                🛒 Agregar al carrito
+              </button>
+              <button onclick="window.location.href='/'" class="btn btn-secondary">
+                🏠 Volver al inicio
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function agregarCarrito() {
+      const talla = document.getElementById("talla").value;
+
+      if (!talla) {
+        alert("Selecciona una talla");
+        return;
+      }
+
+      fetch('/agregar-al-carrito', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: "Plantilla Terapéutica Básica",
+          talla: talla
+        })
+      })
+      .then(response => response.text())
+      .then(html => {
+        document.body.innerHTML = html;
+      })
+      .catch(error => {
+        console.error('Error al agregar al carrito:', error);
+        alert("Hubo un problema al agregar la plantilla.");
+      });
+    }
+  </script>
+
+</body>
+</html>
+
