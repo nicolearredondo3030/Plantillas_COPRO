@@ -25,14 +25,14 @@ Este proyecto es una aplicación web desarrollada con **Node.js, Express y MySQL
 - **Exportación**: pdfkit para generar reportes en PDF
 
 ## 📂 Estructura del proyecto
-/BaseDatos
- -script.sql           # Script con creación de tablas y datos de ejemplo
-/Public
- -login.html           # Página de inicio de sesión
- -registro.html        # Registro de usuarios
- -carrito.html         # Carrito de compras
- -historial.html       # Historial de compras
- -ventas.html          # Vista de administrador
- -styles.css           # Estilos personalizados
- -server.js            # Lógica principal del servidor Express
- -package.json         # Dependencias y configuración del proyecto
+- BaseDatos
+ - script.sql           # Script con creación de tablas y datos de ejemplo
+- Public
+ - login.html           # Página de inicio de sesión
+ - registro.html        # Registro de usuarios
+ - carrito.html         # Carrito de compras
+ - historial.html       # Historial de compras
+ - ventas.html          # Vista de administrador
+ - styles.css           # Estilos personalizados
+ - server.js            # Lógica principal del servidor Express
+ - package.json         # Dependencias y configuración del proyecto
